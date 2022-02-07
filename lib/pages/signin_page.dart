@@ -49,53 +49,59 @@ class SigninPage extends GetWidget<AuthController> {
                       ),
                     ),
                     Padding(padding: EdgeInsets.only(bottom: 15)),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: TextFormField(
-                        controller: controller.userController,
-                        validator: (value) {
-                          if (value!.trim() == '' || value == null) {
-                            return "Please enter username";
-                          }
-                        },
-                        decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.verified_user_rounded),
-                          label: Text('Username'),
-                          floatingLabelBehavior: FloatingLabelBehavior.auto,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: SizedBox(
+                        width: 350,
+                        child: TextFormField(
+                          controller: controller.userController,
+                          validator: (value) {
+                            if (value!.trim() == '' || value == null) {
+                              return "Please enter username";
+                            }
+                          },
+                          decoration: InputDecoration(
+                            suffixIcon: Icon(Icons.verified_user_rounded),
+                            label: Text('Username'),
+                            floatingLabelBehavior: FloatingLabelBehavior.auto,
+                          ),
                         ),
                       ),
                     ),
                     Padding(padding: EdgeInsets.only(bottom: 20)),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: Obx(() {
-                        return TextFormField(
-                          controller: controller.passController,
-                          obscureText: controller.isObscurePass.value,
-                          validator: (value) {
-                            if (value!.trim() == '' || value == null) {
-                              return "Please enter password";
-                            }
-                          },
-                          decoration: InputDecoration(
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                controller.isObscurePass.value =
-                                    !controller.isObscurePass.value;
-                              },
-                              child: (controller.isObscurePass.value == true)
-                                  ? Icon(Icons.lock)
-                                  : Icon(Icons.face_unlock_outlined),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: SizedBox(
+                        width: 350,
+                        child: Obx(() {
+                          return TextFormField(
+                            controller: controller.passController,
+                            obscureText: controller.isObscurePass.value,
+                            validator: (value) {
+                              if (value!.trim() == '' || value == null) {
+                                return "Please enter password";
+                              }
+                            },
+                            decoration: InputDecoration(
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  controller.isObscurePass.value =
+                                      !controller.isObscurePass.value;
+                                },
+                                child: (controller.isObscurePass.value == true)
+                                    ? Icon(Icons.lock)
+                                    : Icon(Icons.face_unlock_outlined),
+                              ),
+                              label: Text('Password'),
+                              floatingLabelBehavior: FloatingLabelBehavior.auto,
                             ),
-                            label: Text('Password'),
-                            floatingLabelBehavior: FloatingLabelBehavior.auto,
-                          ),
-                        );
-                      }),
+                          );
+                        }),
+                      ),
                     ),
                     Padding(padding: EdgeInsets.only(bottom: 40)),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
+                    SizedBox(
+                      width: 350,
                       height: 55,
                       child: Card(
                         elevation: 5.0,
