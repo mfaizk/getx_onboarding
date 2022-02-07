@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:instantpay_distributer/controller/binding/binding.dart';
 import 'package:instantpay_distributer/services/auth_guard.dart';
 import 'package:instantpay_distributer/pages/forgetpass_page.dart';
 import 'package:instantpay_distributer/pages/home_page.dart';
@@ -14,6 +15,8 @@ class Pages {
       middlewares: [
         AuthGuard(),
       ],
+      //Binding also can be added here
+      // binding: InitialBinding()
 
       //Protected Route will be placed inside children
       // children: [],
